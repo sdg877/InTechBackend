@@ -6,6 +6,8 @@ import mongoose from 'mongoose';
 
 import jobRoutes from './routes/jobs.js';
 import userRoutes from './routes/users.js';
+import './config/database.js';
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +24,8 @@ app.get('/', (req, res) => {
 
 app.use('/jobs', jobRoutes);
 app.use('/users', userRoutes);
+
+app.use(require('./config/checkToken'));
 
 app.listen(port, () => {
   console.log(`Server Listening at http://localhost:${port}`);
