@@ -20,12 +20,6 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
-    techStack: String,
-    currentSalary: Number,
-    desiredSalary: Number,
-    jobTitle: String,
-    relocate: Boolean,
-    location: String,
   },
   {
     timestamps: true,
