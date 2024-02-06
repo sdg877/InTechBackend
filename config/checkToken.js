@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-export default function(req, res, next) {
+export default function checkToken(req, res, next) {
   // Check for the token being sent in a header or as a query parameter
   let token = req.get('Authorization') || req.query.token;
   if (token) {
