@@ -28,7 +28,7 @@ router.use(checkToken);
 router.use('/users', userRoutes);
 
 router.listen(port, () => {
-  console.log(`Server Listening at http://localhost:${port}`);
+  console.log(`Server Listening`);
 });
 
 api.use("/api/", router)
