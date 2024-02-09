@@ -27,9 +27,5 @@ router.get('/', (req, res) => {
 router.use(checkToken);
 router.use('/users', userRoutes);
 
-router.listen(port, () => {
-  console.log(`Server Listening`);
-});
-
 api.use("/api/", router)
 export const handler = serverless(api)
