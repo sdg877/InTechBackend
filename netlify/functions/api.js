@@ -13,14 +13,15 @@ import checkToken from '../../config/checkToken.js';
 const api = express();
 mongoose.connect(process.env.DBURL);
 
-api.use(cors());
+api.use(cors({origin: '*'}));
 api.use(bodyParser.json());
 
-api.get('/', (req, res) => {
+const router = Router()
+
+router.get('/', (req, res) => {
   res.sendStatus(200);
 });
 
-const router = Router()
 
 router.use(checkToken);
 router.use('/users', userRoutes);
