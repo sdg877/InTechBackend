@@ -11,21 +11,20 @@ import checkToken from '../../config/checkToken.js';
 
 
 const api = express();
+mongoose.connect(process.env.DBURL);
 
 api.use(cors());
 api.use(bodyParser.json());
 
-mongoose.connect(process.env.DBURL);
-
-const router = Router()
-
-router.get('/', (req, res) => {
-  console.log('inTech');
+api.get('/', (req, res) => {
   res.sendStatus(200);
 });
+
+const router = Router()
 
 router.use(checkToken);
 router.use('/users', userRoutes);
 
 api.use("/api/", router)
+
 export const handler = serverless(api)
