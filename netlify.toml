@@ -7,6 +7,11 @@
   to = "/.netlify/functions/api/:splat"
   status = 200
 
+[[redirects]]
+  from = "/users/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

@@ -22,9 +22,8 @@ router.get('/', (req, res) => {
   res.sendStatus(200);
 });
 
-
 router.use(checkToken);
-router.use('/users', userRoutes);
+api.use('/users', userRoutes);
 
 api.use("/api/", router)
 
