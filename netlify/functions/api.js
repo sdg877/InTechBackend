@@ -12,8 +12,8 @@ import checkToken from '../../config/checkToken.js';
 
 const api = express();
 
-app.use(cors());
-app.use(bodyParser.json());
+api.use(cors());
+api.use(bodyParser.json());
 
 mongoose.connect(process.env.DBURL);
 
