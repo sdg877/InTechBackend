@@ -1,31 +1,37 @@
 import 'dotenv/config';
-import express from 'express';
+import express, {Router} from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import serverless from "serverless-http"
 
 import userRoutes from './routes/users.js';
 import './config/database.js';
 import checkToken from './config/checkToken.js';
 
 
-const app = express();
-const port = process.env.PORT || 3000;
+const api = express();
+const router = Router()
 
 app.use(cors());
 app.use(bodyParser.json());
 
+const port = process.env.PORT || 3000;
+
 mongoose.connect(process.env.DBURL);
 
-app.use(checkToken);
+router.use(checkToken);
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   console.log('inTech');
   res.sendStatus(200);
 });
 
-app.use('/users', userRoutes);
+router.use('/users', userRoutes);
 
-app.listen(port, () => {
+router.listen(port, () => {
   console.log(`Server Listening at http://localhost:${port}`);
 });
+
+api.use("/api/", router)
+export const handler = serverless(api)
