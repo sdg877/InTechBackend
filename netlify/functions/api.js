@@ -5,9 +5,9 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import serverless from "serverless-http"
 
-import userRoutes from './routes/users.js';
-import './config/database.js';
-import checkToken from './config/checkToken.js';
+import userRoutes from '../../routes/users.js';
+import '../../config/database.js';
+import checkToken from '../../config/checkToken.js';
 
 
 const api = express();
