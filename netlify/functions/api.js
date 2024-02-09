@@ -11,22 +11,20 @@ import checkToken from './config/checkToken.js';
 
 
 const api = express();
-const router = Router()
 
 app.use(cors());
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 3000;
-
 mongoose.connect(process.env.DBURL);
 
-router.use(checkToken);
+const router = Router()
 
 router.get('/', (req, res) => {
   console.log('inTech');
   res.sendStatus(200);
 });
 
+router.use(checkToken);
 router.use('/users', userRoutes);
 
 router.listen(port, () => {
