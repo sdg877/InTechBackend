@@ -79,5 +79,6 @@ JobCard after styling:
 ![i6](https://github.com/sdg877/InTechFrontend/assets/149600602/16b9d5af-0c10-4d70-a657-0e25c3cf2d06)
 
 JobDetail Page:
+
 ![i7](https://github.com/sdg877/InTechFrontend/assets/149600602/89852300-d40b-4c49-9213-8370c0c77743)
 
